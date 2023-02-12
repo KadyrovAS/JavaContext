@@ -1,16 +1,21 @@
 package app.annot;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
+@Component
 public class People {
     private String name;
     private int age;
 
-    public People(String name, int age) {
-        this.name = name;
-        this.age = age;
-    }
+    public People(){}
+//    public People(@Value("name") String name, @Value("age")String age) {
+//        this.name = name;
+//        this.age = age;
+//    }
 
     public String getName() {
         return name;

@@ -9,9 +9,11 @@
 
     <context:annotation-config/>
     <context:property-placeholder location="application.properties"/>
-    <bean class="app.annot.People">
-        <constructor-arg name="name" value="${name}"/>
-        <constructor-arg name="age" value="${age}"/>
-    </bean>
+    <context:component-scan base-package="app.annot"/>
+    
+<!--    <bean class="app.annot.People">-->
+<!--        <constructor-arg name="name" value="${name}"/>-->
+<!--        <constructor-arg name="age" value="${age}"/>-->
+<!--    </bean>-->
 
 </beans>
