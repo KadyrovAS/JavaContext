@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="people" class="app.injection.People">
+        <constructor-arg name="name" value="Andrey"/>
+        <constructor-arg name="age" value="52"/>
+    </bean>
+
+    <bean id="engine" class="app.injection.Engine">
+        <constructor-arg name="name" value="V8"/>
+    </bean>
+
+    <bean id="car" class="app.injection.Car" autowire="constructor" />
+
+    <bean id="b1" class="app.injection.conflict.Bean01">
+        <property name="bean02" ref="b2"/>
+    </bean>
+
+    <bean id="b2" class="app.injection.conflict.Bean02">
+        <property name="bean01" ref="b1"/>
+    </bean>
+
+</beans>
