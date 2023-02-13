@@ -10,6 +10,7 @@ public class Main {
 //        System.out.println(people);
 
         Car car = context.getBean(Car.class);
+        Car car1 = context.getBean(Car.class);
         System.out.println(car);
         context.registerShutdownHook();
     }

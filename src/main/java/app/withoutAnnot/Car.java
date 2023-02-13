@@ -1,21 +1,21 @@
-package app.annot;
+package app.withoutAnnot;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Scope;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+        //xml-файлы все можно было удалить
+        //Они не работают в этой конфигурации
 
 @Component
-//@Scope("prototype")
-@Scope("singleton")
 public class Car {
-//    @Resource(name = "lightEngine")
     @Autowired
-//    @Qualifier("lightEngine")
-    @TypeEngine("lightEngine")
+    @Qualifier("lightEngine")
     private Engine engine;
+
+    @Autowired
+    Environment env;
 
     public Car() {
         System.out.println("Контруктор класса Car");
@@ -33,6 +33,6 @@ public class Car {
     public String toString() {
         return "Car{" +
                 "engine=" + engine +
-                '}';
-    }
+                '}' + " " + env.getProperty("name");
+            }
 }
